@@ -1,0 +1,73 @@
+<!---
+    Spacestagram - Shopify Front End Developer Intern Challenge - Winter 2022
+    Created by Egbedi Kome 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Spacestagram - Explore the Universe</title>
+</head>
+<body id="top">
+ 
+    <header>
+        <div class="container">
+            <h1 class="title text-center">Spacestagram</h1>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div id="particles-js"></div>
+
+        <div class="container">
+            
+            <div class="hero-text">
+                <h2 class="display-1">Explore the <br> Universe</h2>
+                <a href="#gallery-post" class="btn btn-dark smooth-scroll">Explore <i class="fas fa-rocket"></i> </a>
+            </div>
+
+            <img src="./assets/moon.png" alt="Hero Moon">
+           
+        </div>
+
+    </section>
+
+    <section class="gallery" id="gallery-post">
+
+        <div class="container">
+            <h2 class="title text-center">Astronomy Pictures of the Day (APOD)</h2>
+            <p class="loading-text text-center lead">This may take a while to load <img src="./assets/loading.gif" alt="loading gif" height="30px"></p>
+            <div class="row"></div>
+        </div>
+
+    </section>
+
+    <a id="scrollUp" href="#top" class="smooth-scroll">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

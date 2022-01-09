@@ -1,0 +1,262 @@
+/* Reset */
+body,p,a,ul,li{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+   font-family: 'Roboto', sans-serif;
+}
+
+li{
+    list-style-type: none;
+}
+
+/* base */
+
+html , body{
+    overflow-x: hidden;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #060100;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,#420001 , #060100); 
+    background: linear-gradient(to right,#420001, #060100); 
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+#scrollUp {
+
+    background-color:#420001;
+    border-radius: 50%;
+    bottom: 30px;
+    right: 10px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-size: 30px;
+    height: 70px;
+    text-align: center;
+    width: 70px;
+    line-height: 66px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms; 
+    position: fixed;
+    z-index: 2147483647;
+    display: none;
+}
+
+#scrollUp:hover {
+    background-color:#530607; 
+}
+
+header{
+    margin-top: 30px;
+}
+
+.title{
+    text-transform: uppercase;
+}
+
+header h1.title{
+    letter-spacing: 0.1em;
+}
+
+.hero{
+    position: relative;
+}
+
+.hero img{
+    filter: opacity(50%);
+    position: absolute;
+    z-index: -10;
+}
+
+.hero div#particles-js{
+    height: 60%;
+    opacity: .7;
+}
+
+.hero div.hero-text{
+    position: absolute;
+}
+
+.hero div.hero-text h2{
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.hero div.hero-text a.btn-dark{
+    color: #000;
+    background-color: #fff;
+    padding: .8rem .85rem;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+    opacity: .8;
+    font-size: .9em;
+}
+
+section.gallery article{
+    width: 95%;
+    margin: 0 auto;
+    height: fit-content;
+    margin-bottom: 50px;
+}
+
+section.gallery article img{
+    width: 90%;
+    height: 40%;
+    object-fit: cover;
+    vertical-align: top;
+}
+
+section.gallery h2.title{
+    font-size: 1.5em;
+    letter-spacing: 0.095em;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+section.gallery article h3{
+    margin-top: 20px;
+    font-size: 1.1em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+section.gallery article p{
+    font-weight: 350;
+    margin-bottom: 15px;
+    height: fit-content;
+    transition: all 0.1s ease-in;
+}
+
+section.gallery article p span.hidden{
+    display: none;
+}
+
+section.gallery article p a{
+    color: #fff;
+    text-decoration: underline;
+    opacity: .6;
+}
+
+section.gallery article button.like-btn{
+    background: none;
+    color: red;
+    box-shadow: none;
+    border: none;
+    font-size: 2em;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    transition: all 0.1s ease-in;
+}
+
+section.gallery article button.like-btn:hover{
+    transform: scale(1.5);
+}
+section.gallery article time{
+    font-size: 0.8em;
+    opacity: .8;
+    margin: 15px 0;
+    display: block;
+}
+
+p.lead{
+    margin-bottom: 20px;
+}
+
+/* mobile style */
+/* Extra small devices (phones, less than 768px) */
+
+.hero{
+    height: 100vh;
+}
+
+.hero img{
+    right: -25%;
+    top: 10%;
+    width: 100%;
+}
+
+.hero div.hero-text{
+    top: 40%;
+    left: 40%;
+    transform: translate(-60%, -50%);
+}
+
+.display-1{
+    font-size: calc(1.7rem + 4.5vw);
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media  only screen and (min-width: 768px) { 
+    .hero{
+        height: 70vh;
+    }
+    section.hero img{
+        width: 60%;
+        right: 0;
+        top: 10%;
+    }
+
+    .hero div.hero-text{
+        transform: translate(-68%, -50%);
+    }
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) { 
+
+    .hero{
+        height: 100vh;
+    }
+
+    .hero div.hero-text a.btn-dark{
+        padding: 1.2rem 1.3rem;
+        font-size: 1em;
+    }
+
+    section.hero img{
+        width: 55%;
+        right: 5%;
+        top: 0;
+    }
+
+    .hero div.hero-text{
+        transform: translate(-90%, -50%);
+    }
+
+    section.gallery article.col-lg-3{
+        width: 50%;
+    }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media  only screen and (min-width: 1220px) { 
+
+    section.hero img{
+        width: 42%;
+    }
+
+     section.gallery article.col-lg-3{
+        width: 33.33%;
+    }
+
+    .hero div.hero-text h2{
+        line-height: 1.4;
+    }
+
+    .display-1 {
+        font-size: 5.5rem;
+    }
+   
+}
