@@ -72,7 +72,6 @@ header h1.title{
     position: relative;
     background-image: url('assets/nasa-yZygONrUBe8-unsplash.jpg');
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
 }
 
@@ -250,6 +249,7 @@ p.lead{
 
     .hero{
         height: 100vh;
+         background-attachment: fixed;
     }
 
     .hero div.hero-text a.btn-dark{
