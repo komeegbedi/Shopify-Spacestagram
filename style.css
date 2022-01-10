@@ -21,9 +21,9 @@ html{
 }
 
 body{
-    background: #060100;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right,#420001 , #060100); 
-    background: linear-gradient(to right,#420001, #060100); 
+    background: #0F2027; 
+    background: -webkit-linear-gradient(to right, #8d9aa8, #475b71);  
+    background: linear-gradient(to right, #8d9aa8, #475b71); 
     background-repeat: no-repeat;
     color: #fff;
     font-family: 'Roboto', sans-serif;
@@ -31,7 +31,7 @@ body{
 
 #scrollUp {
 
-    background-color:#420001;
+    background-color:#2C5364;
     border-radius: 50%;
     bottom: 30px;
     right: 10px;
@@ -54,7 +54,8 @@ body{
 }
 
 header{
-    margin-top: 30px;
+    padding: 40px;
+    position: relative;
 }
 
 .title{
@@ -62,11 +63,28 @@ header{
 }
 
 header h1.title{
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
 }
 
 .hero{
     position: relative;
+    background-image: url('assets/nasa-yZygONrUBe8-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+section.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00020e;
+    opacity: 0.2;
 }
 
 .hero img{
@@ -76,28 +94,43 @@ header h1.title{
 }
 
 .hero div#particles-js{
-    height: 60%;
+    height: 70%;
     opacity: .7;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 
-.hero div.hero-text{
-    position: absolute;
+#top > section.hero > div.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
 }
 
 .hero div.hero-text h2{
-    letter-spacing: 0.1em;
     line-height: 1.5;
     margin-bottom: 30px;
+    font-family: 'Space Mono', monospace;
 }
 
 .hero div.hero-text a.btn-dark{
-    color: #000;
-    background-color: #fff;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    border-radius: 2px;
+    font-family: 'Space Mono', monospace;
     padding: .8rem .85rem;
-    border-radius: 10px;
     letter-spacing: 0.05em;
     opacity: .8;
-    font-size: .9em;
+    font-size: 1em;
+    display: block;
+    width: 40%;
+    margin: auto;
+}
+
+section.gallery {
+    margin-top: 40px;
 }
 
 section.gallery article{
@@ -105,13 +138,22 @@ section.gallery article{
     margin: 0 auto;
     height: fit-content;
     margin-bottom: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+section.gallery article:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 section.gallery article img{
     width: 90%;
     height: 40%;
     object-fit: cover;
-    vertical-align: top;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 section.gallery h2.title{
@@ -119,6 +161,7 @@ section.gallery h2.title{
     letter-spacing: 0.095em;
     font-weight: 300;
     margin-bottom: 40px;
+    font-family: 'Space Mono', monospace;
 }
 
 section.gallery article h3{
@@ -184,12 +227,6 @@ p.lead{
     width: 100%;
 }
 
-.hero div.hero-text{
-    top: 40%;
-    left: 40%;
-    transform: translate(-60%, -50%);
-}
-
 .display-1{
     font-size: calc(1.7rem + 4.5vw);
 }
@@ -204,10 +241,6 @@ p.lead{
         width: 60%;
         right: 0;
         top: 10%;
-    }
-
-    .hero div.hero-text{
-        transform: translate(-68%, -50%);
     }
 }
 
@@ -230,12 +263,12 @@ p.lead{
         top: 0;
     }
 
-    .hero div.hero-text{
-        transform: translate(-90%, -50%);
+    #top > section.hero > div.container{
+        position: relative;
     }
 
     section.gallery article.col-lg-3{
-        width: 50%;
+        width: 47%;
     }
 }
 
@@ -248,7 +281,7 @@ p.lead{
     }
 
      section.gallery article.col-lg-3{
-        width: 33.33%;
+        width: 30%;
     }
 
     .hero div.hero-text h2{

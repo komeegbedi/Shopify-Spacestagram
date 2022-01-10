@@ -7,7 +7,7 @@ const fetchImages = async () =>{
 
     const API_KEY = 'OYrC1WZg8vIJ3RwcdxfXPNaR8DKKNijv5qfsxgqt';
     const URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
-    const query = `&start_date=2021-09-01`;
+    const query = `&start_date=2022-${new Date().getMonth()+1}-01`;
 
     const response = await fetch(URL+query);
 
@@ -52,10 +52,11 @@ const loadPost = () =>{
                     <article class="col-lg-3 col-sm-12" id="${index}">
 
                         <img src="${post.url}"  alt="${post.title}">
-                        <h3 class="title">${post.title}</h3>
-                        <time>${post.date}</time>
+                        <div class="container">
+                            <h3 class="title">${post.title}</h3>
+                            <time>${post.date}</time>
 
-                        <p>${displayText +' '+ hiddenText} `;
+                            <p>${displayText +' '+ hiddenText} `;
                         
                 if(hiddenText.length !== 0){
                     html+= `<a href='javascript:void(0)' class="read-more">read more</a>`;
@@ -63,9 +64,10 @@ const loadPost = () =>{
 
                 html+= `</p>
 
-                        <button  class="like-btn">
-                            <i class="${isLiked ? 'fas fa-heart' : 'far fa-heart'}"></i>
-                        </button>
+                            <button  class="like-btn">
+                                <i class="${isLiked ? 'fas fa-heart' : 'far fa-heart'}"></i>
+                            </button>
+                        </div>
                     </article>`;
 
                 gallery.innerHTML += html;
@@ -92,14 +94,14 @@ const listenForEvents = () => {
 
             if(parentTag.tagName !== 'ARTICLE'){
 
-                parentTag = parentTag.parentNode;
+                parentTag = parentTag.parentNode.parentNode;
             }
 
             likeBtn(parentTag.getAttribute('id'));
         }
         else if(e.target.tagName === 'A'){
 
-            parentTag = e.target.parentNode.parentNode;
+            parentTag = e.target.parentNode.parentNode.parentNode;
 
             readMore(parentTag.getAttribute('id'));
         }
