@@ -3,7 +3,11 @@
 const gallery = document.querySelector('section.gallery div.row');
 const loadingScreen = document.querySelector('p.loading-text');
 
-const fetchImages = async () =>{
+/*  Fecthing the Data from the APOD API and returning data
+    The Data returned contains all the posts for the current month(copyright , title, date , explanation, 
+    the type of media[video or image] , url to media) and the index of the post.
+*/
+const fetchData = async () =>{
 
     const API_KEY = 'OYrC1WZg8vIJ3RwcdxfXPNaR8DKKNijv5qfsxgqt';
     const URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
@@ -17,33 +21,41 @@ const fetchImages = async () =>{
 
     const data = await response.json();
     return data;
-}
+}//fetchData()
 
 
 const loadPost = () =>{
 
-    const maxLength = 50; //max lenght of number of words to show initial
+    const maxLength = 50; //max lenght of number of words to show initial , will only affect screen sizes <= 992
     let isLiked;
+    let ignoredMedia = 0; // this is used to keep the design of the page continuous (on large screens like a desktop). 
+                         // The design of the page is that the even-numbered post will align it's image to the left while the odd-numbered post will be aligned to the right
+                         // since we are only going to be accepting images, if a video skipped two  posts in a row will have it's images aligned at the same side.
 
-    fetchImages()
+    fetchData()
     .then(data => {
 
         data.forEach((post , index) => {
 
-            if (post.media_type === 'image') {
+            if (post.media_type === 'image') { // videos will be ignored
+
+               
+                // for mobile devices the explanation might be long and users may not want to read that post, they may want to read the next post
+                // if the explanation of a post is long, it going take a longer time for the user to reach the post they actually want to read causing tiredness in the hands from scrolling
+                // Solution: have a max lenght for the numbers of words that should show then if users want to read that post, they can click "read more" to expand the explanation
 
                 let text = post.explanation.trim();
-            
-                let splitText = text.split(' '); // I am spliting the string by space in order for me to count how many words they are in the string
 
+                //Spliting the explanation in order to count how many words are there and also to hide some part of the text if it passes the max lenght. (affected only by screen sizes <= 992)
+                let splitText = text.split(' ');
                 let displayText = text;
                 let hiddenText = '';
 
-                isLiked = localStorage.getItem(index);
+                isLiked = localStorage.getItem(index); // check if the post has been liked by the user previously. 
 
                 
-                if (splitText.length > maxLength){
-
+                if (splitText.length > maxLength &&  window.innerWidth <= 992){ 
+    
                     displayText = splitText.slice(0 , maxLength).join(' ');
                     hiddenText = `<span class="hidden">${splitText.slice(maxLength , text.length).join(' ')}</span>`;
                 }
@@ -51,8 +63,8 @@ const loadPost = () =>{
                 let html = `
                     <article class="col-lg-3 col-sm-12" id="${index}">
 
-                        <img src="${post.url}"  alt="${post.title}">
-                        <div class="container">
+                        <img src="${post.url}" class="${(index + ignoredMedia) % 2 === 0 ? "left-align": "right-align"}" alt="${post.title}">
+                        <div class="container info-wrapper">
                             <h3 class="title">${post.title}</h3>
                             <time>${post.date}</time>
 
@@ -72,6 +84,9 @@ const loadPost = () =>{
 
                 gallery.innerHTML += html;
             }
+            else{
+                ignoredMedia++;
+            }//if-else
 
         });
 
