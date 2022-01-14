@@ -18,11 +18,11 @@ You can view the project live here : https://komeegbedi.github.io/Shopify-Spaces
 
 **Desktop Version**
 
-<img src="desktop-hero.png" width="50%" alt="Desktop Hero Section">
-<img src="desktop-post.png" width="50%" alt="Desktop Post Section">
+<img src="desktopHero.png" width="50%" alt="Desktop Hero Section">
+<img src="desktopPost.png" width="50%" alt="Desktop Post Section">
 
 **Mobile Version**
 
-<img src="mobile-hero.PNG" width="30%" alt="Mobile Hero Section">
-<img src="mobile-post.PNG" width="30%" alt="Mobile Post Section">
+<img src="mobileHero.PNG" width="30%" alt="Mobile Hero Section">
+<img src="mobilePost.PNG" width="30%" alt="Mobile Post Section">
 

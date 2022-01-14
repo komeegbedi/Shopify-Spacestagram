@@ -322,13 +322,6 @@ p.lead{
     display: none;
 }
 
-
-/* Small devices (tablets, 768px and up) */
-@media  only screen and (min-width: 768px) { 
-   
-}
-
-
 /* Medium devices (desktops, 992px and up) */
 @media only screen and (min-width: 992px) { 
 
@@ -377,14 +370,4 @@ p.lead{
         display: block;
     }
 
-}
-
-
-/* Large devices (large desktops, 1200px and up) */
-@media  only screen and (min-width: 1220px) { 
-
-     /* section.gallery article.col-lg-3{
-        width: 30%;
-    } */
-   
 }
