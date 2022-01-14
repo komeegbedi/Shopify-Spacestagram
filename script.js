@@ -60,6 +60,7 @@ const loadPost = () =>{
                     hiddenText = `<span class="hidden">${splitText.slice(maxLength , text.length).join(' ')}</span>`;
                 }
 
+                //template ofeach article 
                 let html = `
                     <article class="col-lg-3 col-sm-12" id="${index}">
 
@@ -90,20 +91,21 @@ const loadPost = () =>{
 
         });
 
-        loadingScreen.style.display = "none";
+        loadingScreen.style.display = "none"; // when done fetching all the posts, the load screen will be gone
     })
     .catch(err => console.log(err));
 }
 
-//this function listens for click on the gallery section
-//I added the event listener to just the galery and not each indiviual post to improvement performance over time
+// this function listens for click on the gallery section
+// Added the event listener to just the galery and not each indiviual post to improvement performance over time
+// This function will only take actions when either a like button is clicked or the "read more" button
 const listenForEvents = () => {
 
     gallery.addEventListener('click' , e => {
 
         let parentTag;
 
-        if (e.target.tagName === 'I' || e.target.tagName === 'BUTTON' ){
+        if (e.target.tagName === 'I' || e.target.tagName === 'BUTTON' ){ // if it's the like burron
 
             parentTag = e.target.parentNode;
 
@@ -114,16 +116,19 @@ const listenForEvents = () => {
 
             likeBtn(parentTag.getAttribute('id'));
         }
-        else if(e.target.tagName === 'A'){
+        else if(e.target.tagName === 'A'){ // if it's the "read more" button
 
             parentTag = e.target.parentNode.parentNode.parentNode;
 
             readMore(parentTag.getAttribute('id'));
-        }
+        }//if-else if
         
     });
-}
+}//listenForEvents
 
+
+// The likes are stored in local storage with the ID of the post that was liked 
+// when a post is unliked the item is removed from local storage
 const likeBtn = id =>{
 
     const likeBtn = document.getElementById(id).querySelector('i');
@@ -140,6 +145,7 @@ const likeBtn = id =>{
     }
 }
 
+
 const readMore = id => {
 
     const linkClicked = document.getElementById(id).querySelector('a');
@@ -155,7 +161,7 @@ const readMore = id => {
     }
 }
 
-
+// This hides and display the scroll up button
 const scrollFunction = () => {
     const scrollUp = document.getElementById("scrollUp");
 
@@ -167,6 +173,7 @@ const scrollFunction = () => {
     }
 }
 
+// this helps scroll up smooth
 const clickHandler = function (e) {
     e.preventDefault();
     const href = this.getAttribute("href");
